@@ -1,0 +1,11 @@
+.news-title {
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 30px;
+}
+
+.news {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(0px - var(--card-distance));
+}

@@ -1,0 +1,5 @@
+@import url('pages/Login/index.css');
+
+.login-image {
+    background-image: url(../../../public/register-image.svg);
+}

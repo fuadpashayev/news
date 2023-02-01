@@ -1,0 +1,14 @@
+.title {
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.text {
+    color: var(--color-text) !important;
+    font-weight: 600 !important;
+}
+
+a {
+    text-decoration: none;
+}

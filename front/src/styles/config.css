@@ -1,0 +1,7 @@
+:root {
+    --card-distance: 15px;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}

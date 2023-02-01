@@ -1,0 +1,41 @@
+.divider::before {
+    width: fit-content;
+    content: attr(data-content);
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: -8px;
+    margin: auto;
+    height: 15px;
+    background: #fff;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    padding: 0 10px;
+    color: #999;
+}
+
+.divider.no-text::before {
+    content: initial;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 50px 0;
+    display: block;
+    position: relative;
+}
+
+@media (max-width:767px) {
+    .divider {
+        margin: 25px 0;
+    }
+
+    .divider::before {
+        content: initial;
+    }
+}

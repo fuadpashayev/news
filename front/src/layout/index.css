@@ -1,0 +1,38 @@
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo {
+    width: 45px;
+    height: 45px;
+}
+
+.header-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main {
+    padding: 20px;
+}
+
+.footer {
+    background-color: #1a202c;
+    height: auto;
+    min-height: 250px;
+}

@@ -1,0 +1,27 @@
+:root {
+    --color-main: #6415ff;
+    --color-main-hover: #5011cc;
+
+    --color-dark: #1a202c;
+    --color-dark-hover: #151a25;
+
+    --color-text: #243e63;
+
+    --color-light: #718096;
+}
+
+.color-main {
+    color: var(--color-main)
+}
+
+.color-dark {
+    color: var(--color-dark)
+}
+
+.color-text {
+    color: var(--color-text)
+}
+
+.color-light {
+    color: var(--color-light);
+}

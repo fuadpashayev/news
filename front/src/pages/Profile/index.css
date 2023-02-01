@@ -1,0 +1,40 @@
+.profile {
+    display: flex;
+}
+
+.profile-item {
+    flex: 1;
+}
+
+.form-group {
+    padding: 0;
+    max-width: initial;
+}
+
+.save-button {
+    width: 150px !important;
+    float: right;
+}
+
+.categories {
+    height: 50px;
+}
+
+.categories > div {
+    margin-top: 25px;
+}
+
+.categories > div, .categories > div > div:first-of-type {
+    height: 100%;
+    border-color: #ced4da;
+    border-radius: 5px;
+}
+
+.divider {
+    width: calc(100% - 24px) !important;
+    margin-left: 12px;
+}
+
+.mb-120 {
+    margin-bottom: 120px;
+}
