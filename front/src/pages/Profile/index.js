@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from 'react-light-toast';
 import { updateUserSettings } from "state/modules/user/settingsSlice";
 import { updateUserData } from "state/modules/user/userSlice";
 import UserInformation from "./components/UserInformation";
@@ -20,10 +21,12 @@ const Profile = () => {
         if (userData.password.length > 0 || userData.name !== user.name) {
             dispatch(updateUserData(userData));
         }
-        
+
         if (settingsData.category !== settings.category || settingsData.language !== settings.language) {
             dispatch(updateUserSettings(settingsData));
         }
+
+        toast.success('Your profile has been updated');
     };
 
     return (

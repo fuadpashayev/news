@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ToastContainer from 'react-light-toast';
 import { LayerLoader } from "components/Loaders";
 import useAuth from "hooks/useAuth";
 import './index.css';
@@ -9,6 +10,7 @@ const Layout = ({ loader = false, children }) => {
 
     return (
         <div>
+            <ToastContainer options={{position: 'top-right'}} />
             <LayerLoader isVisible={loader} />
             <div className="container">
                 <div className="header">
