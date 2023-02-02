@@ -1,7 +1,7 @@
 import AxiosInstance from "./api";
 
-// export const api = AxiosInstance.getInstance('http://localhost/api'); //for docker
-export const api = AxiosInstance.getInstance('http://news-server.test/api');
+export const api = AxiosInstance.getInstance('http://localhost:7140/api'); //for docker
+// export const api = AxiosInstance.getInstance('http://news-server.test/api'); //for local
 
 export const slugify = (str) => {
     return str
