@@ -29,6 +29,8 @@ abstract class NewsSource implements NewsSourceInterface {
     }
 
     /**
+     * Get the news from the API and return with the formatted data.
+     *
      * @param $filters
      * @return array
      * @throws GuzzleException
@@ -42,6 +44,8 @@ abstract class NewsSource implements NewsSourceInterface {
     }
 
     /**
+     * Get the setting from the user filter settings.
+     *
      * @param $key
      * @param string $default
      * @return string
@@ -54,6 +58,8 @@ abstract class NewsSource implements NewsSourceInterface {
     }
 
     /**
+     * Get all filter settings from the user settings and map them to the class properties.
+     *
      * @return void
      */
     public function getFilterSettings(): void
@@ -63,6 +69,8 @@ abstract class NewsSource implements NewsSourceInterface {
     }
 
     /**
+     * Request the API and return the response in json.
+     *
      * @param array $filters
      * @return array
      * @throws GuzzleException

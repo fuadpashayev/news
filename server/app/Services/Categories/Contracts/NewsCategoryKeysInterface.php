@@ -4,6 +4,13 @@ namespace App\Services\Categories\Contracts;
 
 interface NewsCategoryKeysInterface
 {
+
+    /**
+     * Constants for news categories
+     *
+     * @var string
+     */
+
     const BUSINESS = 'business';
     const ENTERTAINMENT = 'entertainment';
     const GENERAL = 'general';

@@ -4,6 +4,12 @@ namespace App\Services\Sources;
 
 class NewsApiOrgSource extends NewsSource
 {
+    /**
+     * This method is used to get the url path where the news will be fetched from.
+     *
+     * @param array $filters
+     * @return string
+     */
     public function getUrlPath(array $filters): string
     {
         return match (true) {
@@ -12,6 +18,12 @@ class NewsApiOrgSource extends NewsSource
         };
     }
 
+    /**
+     * This method is used to generate the query parameters for the API.
+     *
+     * @param array $filters
+     * @return array[]
+     */
     public function getQuery(array $filters): array
     {
         return [
@@ -26,6 +38,11 @@ class NewsApiOrgSource extends NewsSource
         ];
     }
 
+    /**
+     * This method is used to get the structure of the response from the API. for example: { "articles": [] }
+     *
+     * @return string
+     */
     public function getResponseStructure(): string
     {
         return 'articles';

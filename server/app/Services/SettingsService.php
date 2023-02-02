@@ -12,6 +12,12 @@ class SettingsService {
     {
         $this->user = auth()->user();
     }
+
+    /**
+     * Get user settings as array with key => value pairs
+     *
+     * @return array
+     */
     public function getSettings(): array
     {
         $settings = $this->user->settings->mapWithKeys(function ($item) {
@@ -21,6 +27,12 @@ class SettingsService {
         return $settings->toArray();
     }
 
+    /**
+     * Update user settings and return updated settings
+     *
+     * @param SettingsUpdateRequest $request
+     * @return array
+     */
     public function updateSettings(SettingsUpdateRequest $request): array
     {
         $settings = $this->mapSettings($request->validated());
@@ -37,6 +49,12 @@ class SettingsService {
         return $this->getSettings();
     }
 
+    /**
+     * Map settings array to array with key => value pairs
+     *
+     * @param array $settings
+     * @return array
+     */
     public function mapSettings(array $settings): array
     {
         return array_map(fn($key, $value) => ['key' => $key, 'value' => $value], array_keys($settings), $settings);

@@ -16,6 +16,12 @@ class UserService
         $this->user = auth()->user();
     }
 
+    /**
+     * Update user data from request and return updated user data
+     *
+     * @param UserUpdateRequest $request
+     * @return Authenticatable
+     */
     public function update(UserUpdateRequest $request): Authenticatable
     {
         $data = ['name' => $request->name];

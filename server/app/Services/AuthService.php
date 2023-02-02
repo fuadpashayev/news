@@ -5,8 +5,6 @@ namespace App\Services;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
-use Illuminate\Http\JsonResponse;
-use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthService
 {
@@ -15,12 +13,24 @@ class AuthService
         $this->user = auth()->user();
     }
 
+    /**
+     * Get token for user
+     *
+     * @param $user
+     * @return string
+     */
     public function getToken($user = null): string
     {
-        $user = $user ?? auth()->user();
+        $user = $user ?? $this->user;
         return $user->createToken('token')->plainTextToken;
     }
 
+    /**
+     * Login user
+     *
+     * @param LoginRequest $request
+     * @return array|null
+     */
     public function login(LoginRequest $request): ?array
     {
         $credentials = $request->only('email', 'password');
@@ -33,6 +43,12 @@ class AuthService
         ];
     }
 
+    /**
+     * Register user
+     *
+     * @param RegisterRequest $request
+     * @return array
+     */
     public function register(RegisterRequest $request): array
     {
         $userData = [
@@ -48,6 +64,11 @@ class AuthService
         ];
     }
 
+    /**
+     * Logout user
+     *
+     * @return void
+     */
     public function logout(): void
     {
         $this->user->currentAccessToken()->delete();

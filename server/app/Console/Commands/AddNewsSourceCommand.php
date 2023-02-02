@@ -8,6 +8,28 @@ use Illuminate\Support\Str;
 
 class AddNewsSourceCommand extends Command
 {
+    private string $sourceFolder;
+    private string $categoryFolder;
+    private string $formatterFolder;
+    private string $examplesFolder;
+    private string $sourceExample;
+    private string $categoryExample;
+    private string $formatterExample;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->sourceFolder = app_path('Services/Sources');
+        $this->categoryFolder = app_path('Services/Categories');
+        $this->formatterFolder = app_path('Services/Formatters');
+        $this->examplesFolder = app_path('Services/Examples');
+
+        $this->sourceExample = File::get("$this->examplesFolder/ExampleSource.php");
+        $this->categoryExample = File::get("$this->examplesFolder/ExampleCategories.php");
+        $this->formatterExample = File::get("$this->examplesFolder/ExampleFormatter.php");
+    }
+
     /**
      * The name and signature of the console command.
      *
@@ -27,7 +49,7 @@ class AddNewsSourceCommand extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $sourceName = $this->argument('name');
         $checkName = Str::endsWith($sourceName, 'Source');
@@ -36,18 +58,9 @@ class AddNewsSourceCommand extends Command
         } else {
             $sourceName = Str::replace('Source', '', $sourceName);
 
-            $sourceFolder = app_path('Services/Sources');
-            $categoryFolder = app_path('Services/Categories');
-            $formatterFolder = app_path('Services/Formatters');
-            $examplesFolder = app_path('Services/Examples');
-
-            $sourceExample = File::get("$examplesFolder/ExampleSource.php");
-            $categoryExample = File::get("$examplesFolder/ExampleCategories.php");
-            $formatterExample = File::get("$examplesFolder/ExampleFormatter.php");
-
-            File::put("{$sourceFolder}/{$sourceName}Source.php", Str::replace('Example', $sourceName, $sourceExample));
-            File::put("{$categoryFolder}/{$sourceName}Categories.php", Str::replace('Example', $sourceName, $categoryExample));
-            File::put("{$formatterFolder}/{$sourceName}Formatter.php", Str::replace('Example', $sourceName, $formatterExample));
+            File::put("{$this->sourceFolder}/{$sourceName}Source.php", Str::replace('Example', $sourceName, $this->sourceExample));
+            File::put("{$this->categoryFolder}/{$sourceName}Categories.php", Str::replace('Example', $sourceName, $this->categoryExample));
+            File::put("{$this->formatterFolder}/{$sourceName}Formatter.php", Str::replace('Example', $sourceName, $this->formatterExample));
 
             $this->info("Added new source: \033[47m\033[31m {$sourceName}Source \033[0m");
         }

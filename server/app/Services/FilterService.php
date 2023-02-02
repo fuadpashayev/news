@@ -14,6 +14,12 @@ class FilterService
         'language',
     ];
 
+    /**
+     * Get filters from request and combine them with filter keys
+     *
+     * @param Request $request
+     * @return array
+     */
     public function getFilters(Request $request): array
     {
         return array_combine($this->filterKeys, array_map(fn($key) => $request->get($key), $this->filterKeys));

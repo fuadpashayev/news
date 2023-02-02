@@ -4,11 +4,23 @@ namespace App\Services\Sources;
 
 class GuardianSource extends NewsSource
 {
+    /**
+     * This method is used to get the url path where the news will be fetched from.
+     *
+     * @param array $filters
+     * @return string
+     */
     public function getUrlPath(array $filters): string
     {
         return 'search';
     }
 
+    /**
+     * This method is used to generate the query parameters for the API.
+     *
+     * @param array $filters
+     * @return array[]
+     */
     public function getQuery(array $filters): array
     {
         return [
@@ -24,6 +36,11 @@ class GuardianSource extends NewsSource
         ];
     }
 
+    /**
+     * This method is used to get the structure of the response from the API. for example: { "articles": [] }
+     *
+     * @return string
+     */
     public function getResponseStructure(): string
     {
         return 'response.results';

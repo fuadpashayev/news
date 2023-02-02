@@ -15,6 +15,12 @@ class NewsService
         $this->newsSources = $newsSources;
     }
 
+    /**
+     * Get news from all sources, cache them and shuffle before returning them to the client
+     *
+     * @param array $filters
+     * @return array
+     */
     public function getNews(array $filters): array
     {
         $cacheKey = md5(json_encode($filters));
@@ -22,6 +28,12 @@ class NewsService
         return Arr::shuffle($news);
     }
 
+    /**
+     * Get news from all sources and merge them into one array
+     *
+     * @param $filters
+     * @return array
+     */
     public function getNewsFromAllSources($filters): array
     {
         return array_reduce($this->newsSources, function($news, $source) use($filters) {

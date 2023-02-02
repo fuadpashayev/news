@@ -6,6 +6,11 @@ use App\Services\Categories\Contracts\{NewsCategoryInterface, NewsCategoryKeysIn
 
 class GuardianCategories implements NewsCategoryInterface, NewsCategoryKeysInterface
 {
+    /**
+     * This method is used to set the categories of the news source.
+     *
+     * @return array
+     */
     public function getCategories(): array
     {
         return [
